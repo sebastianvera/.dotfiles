@@ -1,0 +1,20 @@
+env:
+  TERM: alacritty-direct
+font:
+  size: 18
+  normal:
+    family: 'Liga SFMono Nerd Font'
+    # family: 'Monaco'
+    style: Regular
+window:
+  opacity: 0.9
+  padding:
+    x: 2
+    y: 2
+  decorations: buttonless
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: Comma, mods: Command, chars: "\x02," }
+  - { key: Return, mods: Command, action: "ToggleFullscreen" }
