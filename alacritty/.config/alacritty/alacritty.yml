@@ -22,3 +22,5 @@ key_bindings:
   - { key: Comma, mods: Command, chars: "e ~/dotfiles/alacritty/.config/alacritty/alacritty.yml\x0D" }
   - { key: Return, mods: Command, action: "ToggleFullscreen" }
   - { key: Space, mods: Control, chars: "\x00" }
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
