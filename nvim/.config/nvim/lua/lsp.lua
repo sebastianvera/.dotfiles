@@ -18,21 +18,25 @@ M.generate_sumneko_config = function(config)
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
       },
+      completion = {
+        callSnippet = "Replace"
+      },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,
       },
     },
 	}
-	local luadev = require("lua-dev").setup({
+
+	require("neodev").setup({
 		library = {
-			vimruntime = true,
+			runtime = true,
 			types = true,
 			plugins = false,
 		},
-		lspconfig = lua_settings,
 	})
-	return vim.tbl_extend("keep", config, luadev)
+
+	return vim.tbl_extend("keep", config, { settings = lua_settings })
 end
 
 --- Generates a config table for lspconfig

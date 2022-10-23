@@ -16,6 +16,7 @@ require("packer").startup(function(use)
   use { "wbthomason/packer.nvim" }
 
   use { "catppuccin/nvim", as = "catpuccin" }
+  use { "rktjmp/lush.nvim" }
 
   use { "tpope/vim-repeat" }
   use { "tpope/vim-surround" }
@@ -56,8 +57,13 @@ require("packer").startup(function(use)
 
   use {
     "neovim/nvim-lspconfig",
-    "folke/lua-dev.nvim",
+    "folke/neodev.nvim",
     "onsails/lspkind-nvim",
+  }
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
   }
 
   use { "jose-elias-alvarez/null-ls.nvim" }

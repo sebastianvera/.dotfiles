@@ -45,3 +45,4 @@ require("catppuccin").setup({
 })
 -- vim.g.catpuccin_flavour = "macchiato"
 vim.cmd [[ colorscheme catppuccin ]]
+-- vim.cmd [[ colorscheme monotono ]]

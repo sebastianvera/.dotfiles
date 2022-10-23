@@ -3,8 +3,11 @@ env:
 font:
   size: 18
   normal:
-    family: 'Liga SFMono Nerd Font'
+    # family: 'Liga SFMono Nerd Font'
+    family: 'iMWritingMonoS Nerd Font'
+    # family: 'BlexMono Nerd Font Mono'
     # family: 'Monaco'
+    # style: Book
     style: Regular
 window:
   opacity: 0.9
@@ -16,5 +19,6 @@ mouse:
   hide_when_typing: true
 
 key_bindings:
-  - { key: Comma, mods: Command, chars: "\x02," }
+  - { key: Comma, mods: Command, chars: "e ~/dotfiles/alacritty/.config/alacritty/alacritty.yml\x0D" }
   - { key: Return, mods: Command, action: "ToggleFullscreen" }
+  - { key: Space, mods: Control, chars: "\x00" }

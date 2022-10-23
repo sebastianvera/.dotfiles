@@ -10,24 +10,17 @@ require("nvim-treesitter.configs").setup({
     "typescript",
     "comment",
     "lua",
-    "fish"
+    "fish",
   },
   highlight = {
     enable = true,
-    use_languagetree = false,
-    disable = { "json" },
-    custom_captures = {},
+    disable = {},
   },
   autotag = {
     enable = true,
   },
-  matchup = {
-    enable = true, -- mandatory, false will disable the whole extension
-    disable = { "c", "ruby" }, -- optional, list of language that will be disabled
-  },
   context_commentstring = {
     enable = true,
-    enable_autocmd = false,
   },
   textobjects = {
     move = {
