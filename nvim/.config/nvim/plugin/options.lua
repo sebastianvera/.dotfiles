@@ -41,8 +41,9 @@ vim.opt.suffixes    = vim.opt.suffixes - '.h'
 vim.opt.shortmess   = vim.opt.shortmess - 'S'
 
 require("catppuccin").setup({
-  transparent_background = false,
+  transparent_background = true,
+  flavour = "mocha",
 })
 -- vim.g.catpuccin_flavour = "macchiato"
-vim.cmd [[ colorscheme catppuccin ]]
+vim.api.nvim_command [[ colorscheme catppuccin ]]
 -- vim.cmd [[ colorscheme monotono ]]

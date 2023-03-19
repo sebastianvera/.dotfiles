@@ -3,14 +3,17 @@ env:
 font:
   size: 18
   normal:
+    # family: 'Victor Mono'
+    family: 'MonoLisa Trial'
     # family: 'Liga SFMono Nerd Font'
-    family: 'iMWritingMonoS Nerd Font'
+    # family: 'iMWritingMonoS Nerd Font'
+    # family: 'Cascadia Code PL'
     # family: 'BlexMono Nerd Font Mono'
     # family: 'Monaco'
     # style: Book
-    style: Regular
+    # style: Regular
 window:
-  opacity: 0.9
+  opacity: 1
   padding:
     x: 2
     y: 2
@@ -19,8 +22,12 @@ mouse:
   hide_when_typing: true
 
 key_bindings:
-  - { key: Comma, mods: Command, chars: "e ~/dotfiles/alacritty/.config/alacritty/alacritty.yml\x0D" }
-  - { key: Return, mods: Command, action: "ToggleFullscreen" }
+  - {
+      key: Comma,
+      mods: Command,
+      chars: "e ~/dotfiles/alacritty/.config/alacritty/alacritty.yml\x0D",
+    }
+  - { key: Return, mods: Command, action: 'ToggleFullscreen' }
   - { key: Space, mods: Control, chars: "\x00" }
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml

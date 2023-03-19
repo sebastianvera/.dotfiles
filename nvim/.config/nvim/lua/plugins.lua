@@ -61,9 +61,9 @@ require("packer").startup(function(use)
   --   requires = "kyazdani42/nvim-web-devicons",
   -- }
   --
-  -- use { "jose-elias-alvarez/null-ls.nvim" }
-   use {
+  use {
 	  'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
 	  requires = {
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},
@@ -81,6 +81,9 @@ require("packer").startup(function(use)
 		  -- Snippets
 		  {'L3MON4D3/LuaSnip'},
 		  {'rafamadriz/friendly-snippets'},
+
+      -- Formatter
+      { "jose-elias-alvarez/null-ls.nvim" }
 	  }
   }
 
