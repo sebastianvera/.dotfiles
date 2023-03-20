@@ -3,18 +3,6 @@ vim.g.maplocalleader = " "
 
 pcall(require, 'impatient')
 
-local group = vim.api.nvim_create_augroup("ReloadConfig", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = group,
-  pattern = "*/.config/nvim/init.lua",
-  command = "luafile %",
-})
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = group,
-  pattern = "*/.config/nvim/lua/plugins.lua",
-  command = "source <afile> | PackerCompile",
-})
-
 -- Setup enovim providers (`:h provider`)
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
@@ -39,7 +27,6 @@ vim.g.loaded_zip               = 1
 vim.g.loaded_zipPlugin         = 1
 
 require("globals")
-require("plugins")
 
 -- Abbreviations --
 vim.cmd([[ iab arent       aren't ]])
@@ -89,3 +76,18 @@ vim.cmd([[
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 150})
   augroup END
 ]])
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup('custom.plugins')
