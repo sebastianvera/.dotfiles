@@ -121,12 +121,28 @@ return {
       --     return
       -- end
 
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+      local ERROR = vim.diagnostic.severity["ERROR"]
+      local WARN = vim.diagnostic.severity["WARN"]
+
+      vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+      vim.keymap.set("n", "gh", vim.lsp.buf.signature_help, opts)
       vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
       vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
       vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
       vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+      vim.keymap.set("n", "[e", function()
+        vim.diagnostic.goto_prev({ severity = ERROR })
+      end, opts)
+      vim.keymap.set("n", "]e", function()
+        vim.diagnostic.goto_next({ severity = ERROR })
+      end, opts)
+      vim.keymap.set("n", "[w", function()
+        vim.diagnostic.goto_prev({ severity = WARN })
+      end, opts)
+      vim.keymap.set("n", "]w", function()
+        vim.diagnostic.goto_next({ severity = WARN })
+      end, opts)
       vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
       vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
       vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
@@ -134,9 +150,6 @@ return {
       vim.keymap.set("n", "<leader>vf", vim.lsp.buf.format, opts)
     end)
 
-    -- lsp.configure('tsserver', {
-    --   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
-    -- })
     lsp.setup()
 
     vim.diagnostic.config({
