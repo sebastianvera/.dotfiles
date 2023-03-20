@@ -1,7 +1,7 @@
 env:
   TERM: alacritty-direct
 font:
-  size: 18
+  size: 20
   normal:
     # family: 'Victor Mono'
     family: 'MonoLisa Trial'
@@ -29,5 +29,8 @@ key_bindings:
     }
   - { key: Return, mods: Command, action: 'ToggleFullscreen' }
   - { key: Space, mods: Control, chars: "\x00" }
+  # - { key: LBracket, mods: Command, chars: "\x0f" } # navigate back (ctrl+o)
+  - { key: LBracket, mods: Command, chars: "\x02p" } # switch to prev tmux window
+  - { key: RBracket, mods: Command, chars: "\x02n" } # switch to next tmux window
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
