@@ -1,19 +1,19 @@
 return {
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v1.x',
+  "VonHeikemen/lsp-zero.nvim",
+  branch = "v1.x",
   dependencies = {
     -- LSP Support
-    'neovim/nvim-lspconfig',
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    "neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
 
     -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'saadparwaiz1/cmp_luasnip',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lua',
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lua",
     "mtoohey31/cmp-fish",
 
     -- Icons
@@ -25,92 +25,82 @@ return {
 
     lsp.preset("recommended")
 
-    lsp.ensure_installed({
-      'tsserver',
-      'eslint',
-      'lua_ls',
-      'rust_analyzer',
-      'tailwindcss',
-      'jsonls',
-    })
-
-    lsp.configure('jsonls', {
+    lsp.configure("jsonls", {
       settings = {
         json = {
           schemas = {
             {
-              description = 'TypeScript compiler configuration file',
-              fileMatch = { 'tsconfig.json', 'tsconfig.*.json' },
-              url = 'http://json.schemastore.org/tsconfig'
+              description = "TypeScript compiler configuration file",
+              fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+              url = "http://json.schemastore.org/tsconfig",
             },
             {
-              description = 'Lerna config',
-              fileMatch = { 'lerna.json' },
-              url = 'http://json.schemastore.org/lerna'
+              description = "Lerna config",
+              fileMatch = { "lerna.json" },
+              url = "http://json.schemastore.org/lerna",
             },
             {
-              description = 'Babel configuration',
-              fileMatch = { '.babelrc.json', '.babelrc', 'babel.config.json' },
-              url = 'http://json.schemastore.org/lerna'
+              description = "Babel configuration",
+              fileMatch = { ".babelrc.json", ".babelrc", "babel.config.json" },
+              url = "http://json.schemastore.org/lerna",
             },
             {
-              description = 'ESLint config',
-              fileMatch = { '.eslintrc.json', '.eslintrc' },
-              url = 'http://json.schemastore.org/eslintrc'
+              description = "ESLint config",
+              fileMatch = { ".eslintrc.json", ".eslintrc" },
+              url = "http://json.schemastore.org/eslintrc",
             },
             {
-              description = 'Bucklescript config',
-              fileMatch = { 'bsconfig.json' },
-              url = 'https://bucklescript.github.io/bucklescript/docson/build-schema.json'
+              description = "Bucklescript config",
+              fileMatch = { "bsconfig.json" },
+              url = "https://bucklescript.github.io/bucklescript/docson/build-schema.json",
             },
             {
-              description = 'Prettier config',
-              fileMatch = { '.prettierrc', '.prettierrc.json', 'prettier.config.json' },
-              url = 'http://json.schemastore.org/prettierrc'
+              description = "Prettier config",
+              fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
+              url = "http://json.schemastore.org/prettierrc",
             },
             {
-              description = 'Vercel Now config',
-              fileMatch = { 'now.json' },
-              url = 'http://json.schemastore.org/now'
+              description = "Vercel Now config",
+              fileMatch = { "now.json" },
+              url = "http://json.schemastore.org/now",
             },
             {
-              description = 'Stylelint config',
-              fileMatch = { '.stylelintrc', '.stylelintrc.json', 'stylelint.config.json' },
-              url = 'http://json.schemastore.org/stylelintrc'
+              description = "Stylelint config",
+              fileMatch = { ".stylelintrc", ".stylelintrc.json", "stylelint.config.json" },
+              url = "http://json.schemastore.org/stylelintrc",
             },
-          }
+          },
         },
-      }
+      },
     })
 
     -- Fix Undefined global 'vim'
-    lsp.configure('lua_ls', {
+    lsp.configure("lua_ls", {
       settings = {
         Lua = {
           diagnostics = {
-            globals = { 'vim' }
-          }
-        }
-      }
+            globals = { "vim" },
+          },
+        },
+      },
     })
 
-
-    local cmp = require('cmp')
+    local cmp = require("cmp")
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local cmp_mappings = lsp.defaults.cmp_mappings({
-      ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-      ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+      ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+      ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
       ["<C-Space>"] = cmp.mapping.complete(),
     })
 
     -- disable completion with tab
     -- this helps with copilot setup
-    cmp_mappings['<Tab>'] = nil
-    cmp_mappings['<S-Tab>'] = nil
+    cmp_mappings["<Tab>"] = nil
+    cmp_mappings["<S-Tab>"] = nil
 
     lsp.setup_nvim_cmp({
-      mapping = cmp_mappings
+      mapping = cmp_mappings,
     })
 
     lsp.set_preferences({

@@ -5,7 +5,7 @@ return {
   opts = function()
     return {
       ensure_installed = {
-        "prettierd", "goimports", "fish_indent", "stylua",
+        "fish_indent",
       },
       -- you can reuse a shared lspconfig on_attach callback here
       on_attach = function(client, bufnr)
