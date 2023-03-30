@@ -1,11 +1,17 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
-  branch = "v1.x",
+  branch = "v2.x",
   dependencies = {
     -- LSP Support
     "neovim/nvim-lspconfig",
-    "williamboman/mason.nvim",
+    {
+      "williamboman/mason.nvim",
+      build = function()
+        pcall(vim.cmd, "MasonUpdate")
+      end,
+    },
     "williamboman/mason-lspconfig.nvim",
+    "j-hui/fidget.nvim",
 
     -- Autocompletion
     "hrsh7th/nvim-cmp",
@@ -21,11 +27,14 @@ return {
     "onsails/lspkind.nvim",
   },
   config = function()
-    local lsp = require("lsp-zero")
+    local lsp = require("lsp-zero").preset({
+      name = "minimal",
+      manage_nvim_cmp = false,
+    })
 
-    lsp.preset("recommended")
+    lsp.nvim_workspace()
 
-    lsp.configure("jsonls", {
+    require("lspconfig").jsonls.setup({
       settings = {
         json = {
           schemas = {
@@ -74,16 +83,17 @@ return {
       },
     })
 
+    require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
     -- Fix Undefined global 'vim'
-    lsp.configure("lua_ls", {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-        },
-      },
-    })
+    -- lsp.configure("lua_ls", {
+    --   settings = {
+    --     Lua = {
+    --       diagnostics = {
+    --         globals = { "vim" },
+    --       },
+    --     },
+    --   },
+    -- })
 
     local cmp = require("cmp")
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -91,16 +101,34 @@ return {
       ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
       ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
       ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+      ["<C-e>"] = cmp.mapping.abort(),
       ["<C-Space>"] = cmp.mapping.complete(),
     })
 
     -- disable completion with tab
     -- this helps with copilot setup
-    cmp_mappings["<Tab>"] = nil
-    cmp_mappings["<S-Tab>"] = nil
+    -- cmp_mappings["<Tab>"] = nil
+    -- cmp_mappings["<S-Tab>"] = nil
 
-    lsp.setup_nvim_cmp({
+    cmp.setup({
       mapping = cmp_mappings,
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+      formatting = {
+        format = require("lspkind").cmp_format({
+          maxwidth = 50,
+          ellipsis_char = "...",
+          before = require("tailwindcss-colorizer-cmp").formatter,
+        }),
+      },
+      sources = {
+        { name = "path" },
+        { name = "nvim_lsp" },
+        { name = "buffer",  keyword_length = 3 },
+        { name = "luasnip", keyword_length = 2 },
+      },
     })
 
     lsp.set_preferences({
@@ -149,6 +177,18 @@ return {
       vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
       vim.keymap.set("n", "<leader>vf", vim.lsp.buf.format, opts)
     end)
+
+    require("fidget").setup({
+      text = {
+        spinner = "moon",
+      },
+      window = {
+        blend = 0,
+      },
+      sources = {
+        ["null-ls"] = { ignore = true },
+      },
+    })
 
     lsp.setup()
 

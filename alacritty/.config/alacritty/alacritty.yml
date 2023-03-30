@@ -4,8 +4,8 @@ font:
   size: 20
   normal:
     # family: 'Victor Mono'
-    family: 'MonoLisa Trial'
-    # family: 'Liga SFMono Nerd Font'
+    # family: 'MonoLisa Trial'
+    family: 'Liga SFMono Nerd Font'
     # family: 'iMWritingMonoS Nerd Font'
     # family: 'Cascadia Code PL'
     # family: 'BlexMono Nerd Font Mono'
