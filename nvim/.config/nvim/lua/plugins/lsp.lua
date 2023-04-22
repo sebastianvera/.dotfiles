@@ -10,7 +10,7 @@ return {
         pcall(vim.cmd, "MasonUpdate")
       end,
     },
-    "williamboman/mason-lspconfig.nvim",
+    -- "williamboman/mason-lspconfig.nvim",
     "j-hui/fidget.nvim",
 
     -- Autocompletion
@@ -25,6 +25,32 @@ return {
     -- Icons
     "nvim-tree/nvim-web-devicons",
     "onsails/lspkind.nvim",
+    {
+      "folke/neodev.nvim",
+      opts = {
+        library = {
+          plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+        },
+      },
+    },
+    {
+      "lvimuser/lsp-inlayhints.nvim",
+      event = "LspAttach",
+      opts = {},
+      config = function(_, opts)
+        require("lsp-inlayhints").setup(opts)
+        vim.api.nvim_create_autocmd("LspAttach", {
+          group = vim.api.nvim_create_augroup("LspAttach_inlayhints", {}),
+          callback = function(args)
+            if not (args.data and args.data.client_id) then
+              return
+            end
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            require("lsp-inlayhints").on_attach(client, args.buf)
+          end,
+        })
+      end,
+    },
   },
   config = function()
     local lsp = require("lsp-zero").preset({
@@ -118,6 +144,7 @@ return {
       },
       formatting = {
         format = require("lspkind").cmp_format({
+          mode = "symbol",
           maxwidth = 50,
           ellipsis_char = "...",
           before = require("tailwindcss-colorizer-cmp").formatter,
@@ -128,6 +155,11 @@ return {
         { name = "nvim_lsp" },
         { name = "buffer",  keyword_length = 3 },
         { name = "luasnip", keyword_length = 2 },
+      },
+      snippet = {
+        expand = function(args)
+          require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+        end,
       },
     })
 

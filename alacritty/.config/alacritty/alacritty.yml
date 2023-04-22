@@ -5,11 +5,14 @@ font:
   normal:
     # family: 'Victor Mono'
     # family: 'MonoLisa Trial'
-    family: 'Liga SFMono Nerd Font'
+    # family: 'Liga SFMono Nerd Font'
     # family: 'iMWritingMonoS Nerd Font'
     # family: 'Cascadia Code PL'
     # family: 'BlexMono Nerd Font Mono'
     # family: 'Monaco'
+    # family: 'Monaco Nerd Font'
+    # family: 'Monaco Nerd Font Mono'
+    family: 'UbuntuMono Nerd Font'
     # style: Book
     # style: Regular
 window:

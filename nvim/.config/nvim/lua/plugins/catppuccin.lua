@@ -11,6 +11,6 @@ return {
 		-- vim.g.catpuccin_flavour = "macchiato"
 		-- vim.cmd [[ colorscheme monotono ]]
 		require("catppuccin").setup(opts)
-		-- vim.api.nvim_command [[ colorscheme catppuccin ]]
+		vim.api.nvim_command [[ colorscheme catppuccin ]]
 	end,
 }
