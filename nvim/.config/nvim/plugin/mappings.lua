@@ -5,10 +5,6 @@ vim.keymap.set("c", "Q", "q", {})
 vim.keymap.set("c", "W", "w", {})
 
 vim.keymap.set("", "<C-c>", '"+y', { noremap = true, silent = true, nowait = true })
--- vim.keymap.set("", "<C-h>", "<C-w><C-h>", { noremap = true, silent = true, nowait = true })
--- vim.keymap.set("", "<C-j>", "<C-w><C-j>", { noremap = true, silent = true, nowait = true })
--- vim.keymap.set("", "<C-k>", "<C-w><C-k>", { noremap = true, silent = true, nowait = true })
--- vim.keymap.set("", "<C-l>", "<C-w><C-l>", { noremap = true, silent = true, nowait = true })
 
 -- Search mappings: these will make it so that going to the next one in a
 -- search will center on the line it's found in.

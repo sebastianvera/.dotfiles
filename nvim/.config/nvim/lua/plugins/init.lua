@@ -1,8 +1,8 @@
 return {
   "tpope/vim-repeat",
   "tpope/vim-surround",
+  "tpope/vim-vinegar",
   "justinmk/vim-sneak",
-  "justinmk/vim-dirvish",
   "christoomey/vim-tmux-runner",
   "christoomey/vim-tmux-navigator",
   "folke/todo-comments.nvim",
