@@ -36,20 +36,28 @@ vim.o.writebackup   = false
 vim.o.list          = false
 vim.o.termguicolors = true
 vim.o.laststatus    = 3
-vim.opt.listchars   = { space = '·', trail = '·', precedes = '«', extends = '»', eol = '↲', tab = '▸ ' }
+vim.opt.listchars   = {
+  space = '·',
+  trail = '·',
+  precedes = '«',
+  extends = '»',
+  eol = '↲',
+  tab = '▸ '
+}
 vim.opt.suffixes    = vim.opt.suffixes - '.h'
 vim.opt.shortmess   = vim.opt.shortmess - 'S'
 
-P = function(v)
+-- Global functions
+P                   = function(v)
   print(vim.inspect(v))
   return v
 end
 
-RELOAD = function(...)
+RELOAD              = function(...)
   return require('plenary.reload').reload_module(...)
 end
 
-R = function(name)
+R                   = function(name)
   local plugin = require("lazy.core.config").plugins[name]
   require("lazy.core.loader").reload(plugin)
   return require(name)

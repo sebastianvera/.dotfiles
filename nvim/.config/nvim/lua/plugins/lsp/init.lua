@@ -38,12 +38,11 @@ return {
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-      local mason_lspconfig = require 'mason-lspconfig'
 
+      local mason_lspconfig = require 'mason-lspconfig'
       mason_lspconfig.setup {
         ensure_installed = vim.tbl_keys(servers),
       }
-
       mason_lspconfig.setup_handlers {
         function(server_name)
           require('lspconfig')[server_name].setup {
@@ -61,6 +60,14 @@ return {
           require("plugins.lsp.mappings").on_attach(client, ev.buf)
         end,
       })
+
+      -- Add border to vim floating windows, i.e. hover and diagnostics
+      local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+      function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = opts.border or 'rounded'
+        return orig_util_open_floating_preview(contents, syntax, opts, ...)
+      end
     end,
   },
   -- Autocompletion
@@ -98,10 +105,7 @@ return {
         mapping = cmp_mappings,
         window = {
           completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered({
-            winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None'
-          })
+          documentation = cmp.config.window.bordered(),
         },
         formatting = {
           format = require("lspkind").cmp_format({
@@ -126,7 +130,3 @@ return {
     end
   },
 }
-
--- vim.diagnostic.config({
---   virtual_text = true,
--- })
