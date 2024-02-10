@@ -1,0 +1,46 @@
+import = ["/Users/rope/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+
+[env]
+TERM = "alacritty-direct"
+
+[font]
+size = 20
+
+[font.normal]
+family = "UbuntuMono Nerd Font"
+
+[[keyboard.bindings]]
+chars = "e ~/dotfiles/alacritty/.config/alacritty/alacritty.yml\r"
+key = "Comma"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0002p"
+key = "LBracket"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002n"
+key = "RBracket"
+mods = "Command"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+decorations = "buttonless"
+opacity = 0.9
+
+[window.padding]
+x = 2
+y = 2
