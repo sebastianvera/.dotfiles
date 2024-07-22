@@ -31,12 +31,9 @@ return {
     matchup = {
       enable = true,
     },
-    autotag = {
-      enable = true,
-    },
-    context_commentstring = {
-      enable = true,
-    },
+    -- context_commentstring = {
+    --   enable = true,
+    -- },
     textobjects = {
       move = {
         enable = true,
@@ -75,5 +72,6 @@ return {
   },
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
+    require("nvim-ts-autotag").setup()
   end,
 }

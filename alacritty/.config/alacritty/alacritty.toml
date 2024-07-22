@@ -4,13 +4,14 @@ import = ["/Users/rope/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 TERM = "alacritty-direct"
 
 [font]
-size = 20
+size = 15
 
 [font.normal]
-family = "UbuntuMono Nerd Font"
+# family = "UbuntuMono Nerd Font"
+family = "Monaco Nerd Font"
 
 [[keyboard.bindings]]
-chars = "e ~/dotfiles/alacritty/.config/alacritty/alacritty.yml\r"
+chars = "e ~/dotfiles/alacritty/.config/alacritty/alacritty.toml\r"
 key = "Comma"
 mods = "Command"
 
@@ -39,7 +40,8 @@ hide_when_typing = true
 
 [window]
 decorations = "buttonless"
-opacity = 0.9
+opacity = 1
+option_as_alt = "OnlyRight"
 
 [window.padding]
 x = 2

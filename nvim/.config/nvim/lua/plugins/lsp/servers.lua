@@ -34,7 +34,7 @@ return {
           {
             description = "Prettier config",
             fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
-            url = "http://json.schemastore.org/prettierrc",
+            url = "https://json.schemastore.org/prettierrc",
           },
           {
             description = "Vercel Now config",

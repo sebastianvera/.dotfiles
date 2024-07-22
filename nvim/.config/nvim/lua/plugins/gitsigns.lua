@@ -3,7 +3,6 @@ return {
   opts = {
     signcolumn = true,
     current_line_blame = false,
-    keymaps = {},
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
 
