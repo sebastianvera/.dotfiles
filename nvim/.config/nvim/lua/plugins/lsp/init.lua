@@ -3,17 +3,17 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
-        'williamboman/mason.nvim',
+        "williamboman/mason.nvim",
         config = true,
         build = function()
           pcall(vim.cmd, "MasonUpdate")
         end,
       },
-      'williamboman/mason-lspconfig.nvim',
+      "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim",
       {
-        'j-hui/fidget.nvim',
+        "j-hui/fidget.nvim",
         tag = "legacy",
         event = "LspAttach",
         opts = {
@@ -34,28 +34,28 @@ return {
         library = {
           plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
         },
-      });
+      })
 
-      local servers = require('plugins.lsp.servers')
+      local servers = require("plugins.lsp.servers")
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-      local mason_lspconfig = require 'mason-lspconfig'
-      mason_lspconfig.setup {
+      local mason_lspconfig = require("mason-lspconfig")
+      mason_lspconfig.setup({
         ensure_installed = vim.tbl_keys(servers),
-      }
-      mason_lspconfig.setup_handlers {
+      })
+      mason_lspconfig.setup_handlers({
         function(server_name)
-          require('lspconfig')[server_name].setup {
+          require("lspconfig")[server_name].setup({
             capabilities = capabilities,
             settings = servers[server_name],
-          }
+          })
         end,
-      }
+      })
 
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
           require("plugins.lsp.format").on_attach(client, ev.buf)
@@ -67,15 +67,15 @@ return {
       local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
       function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
         opts = opts or {}
-        opts.border = opts.border or 'rounded'
+        opts.border = opts.border or "rounded"
         return orig_util_open_floating_preview(contents, syntax, opts, ...)
       end
     end,
   },
   -- Autocompletion
   {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     dependencies = {
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-buffer",
@@ -85,7 +85,7 @@ return {
       "hrsh7th/cmp-nvim-lua",
       "mtoohey31/cmp-fish",
 
-      'L3MON4D3/LuaSnip',
+      "L3MON4D3/LuaSnip",
 
       "nvim-tree/nvim-web-devicons",
       "onsails/lspkind.nvim",
@@ -98,8 +98,8 @@ return {
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
         ["<C-e>"] = cmp.mapping.abort(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-Space>"] = cmp.mapping.complete(),
       }
 
@@ -114,7 +114,7 @@ return {
             mode = "symbol",
             maxwidth = 50,
             ellipsis_char = "...",
-            before = require("tailwindcss-colorizer-cmp").formatter,
+            -- before = require("tailwindcss-colorizer-cmp").formatter,
           }),
         },
         sources = {
@@ -129,6 +129,6 @@ return {
           end,
         },
       })
-    end
+    end,
   },
 }

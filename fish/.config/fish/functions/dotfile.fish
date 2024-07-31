@@ -2,6 +2,8 @@ function dotfile --description "edit dotfiles"
   switch $argv
     case alacritty
       e ~/dotfiles/alacritty/.config/alacritty/alacritty.yml
+    case kitty
+      e ~/dotfiles/kitty/.config/kitty/kitty.conf
     case nvim
       e ~/dotfiles/nvim/.config/nvim/init.lua
     case fish

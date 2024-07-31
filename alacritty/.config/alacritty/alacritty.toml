@@ -8,7 +8,7 @@ size = 15
 
 [font.normal]
 # family = "UbuntuMono Nerd Font"
-family = "Monaco Nerd Font"
+family = "MonacoLigaturized Nerd Font Mono"
 
 [[keyboard.bindings]]
 chars = "e ~/dotfiles/alacritty/.config/alacritty/alacritty.toml\r"

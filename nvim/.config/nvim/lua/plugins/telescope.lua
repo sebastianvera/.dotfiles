@@ -46,7 +46,7 @@ return {
           additional_args = { "--hidden" },
         },
         find_files = {
-          find_command = { "rg", "--files", "--hidden" },
+          find_command = { "rg", "-L", "--files", "--hidden" },
         },
       },
       extensions = {
