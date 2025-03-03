@@ -33,17 +33,17 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fv", function()
-  builtin.find_files({ cwd = "~/.config/nvim" })
+	builtin.find_files({ cwd = "~/.config/nvim" })
 end, {})
 
 --
 vim.keymap.set("n", "<leader>vi", ":e ~/.config/nvim/init.lua<CR>", { noremap = true, silent = true, nowait = true })
 
 -- Vim Sneak
-vim.keymap.set("", "f", "<Plug>Sneak_f", { silent = true })
-vim.keymap.set("", "F", "<Plug>Sneak_F", { silent = true })
-vim.keymap.set("", "t", "<Plug>Sneak_t", { silent = true })
-vim.keymap.set("", "T", "<Plug>Sneak_T", { silent = true })
+-- vim.keymap.set("", "f", "<Plug>Sneak_f", { silent = true })
+-- vim.keymap.set("", "F", "<Plug>Sneak_F", { silent = true })
+-- vim.keymap.set("", "t", "<Plug>Sneak_t", { silent = true })
+-- vim.keymap.set("", "T", "<Plug>Sneak_T", { silent = true })
 
 -- VimTmuxRunner
 vim.keymap.set("n", "<Leader>sf", ":VtrSendFile<CR>", { noremap = true, silent = true, nowait = true })
@@ -53,27 +53,27 @@ vim.keymap.set("n", "<Leader>or", ":VtrOpenRunner<CR>", { noremap = true, silent
 local ls = require("luasnip")
 
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
+	if ls.expand_or_jumpable() then
+		ls.expand_or_jump()
+	end
 end, { silent = true })
 
 vim.keymap.set({ "i", "s" }, "<c-j>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
+	if ls.jumpable(-1) then
+		ls.jump(-1)
+	end
 end, { silent = true })
 
 vim.keymap.set("i", "<c-l>", function()
-  if ls.choice_active() then
-    ls.change_choice(1)
-  end
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
 end)
 
 vim.keymap.set("i", "<c-h>", function()
-  if ls.choice_active() then
-    ls.change_choice(-1)
-  end
+	if ls.choice_active() then
+		ls.change_choice(-1)
+	end
 end)
 
 vim.keymap.set("n", "<leader>sp", "<cmd>LuaSnipEdit<cr>")
