@@ -6,10 +6,10 @@ font-family = Monaspace Neon Var
 # font-family = Monaspace Xenon Var
 font-size = 20
 window-padding-x = 4
-# theme = catppuccin-mocha
+# theme = vesper
 # macos-titlebar-style = hidden
 # window-decoration = none
-background = #000
+# background = #000
 #
 # # Empty values are used to reset config keys to default.
 # key =

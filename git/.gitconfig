@@ -50,8 +50,6 @@
   prune-branches = "!f() { git branch --merged | grep -v master | grep -v development | grep -v '*' | xargs git branch -d ; }; f"
 [rebase]
   autosquash = true
-[github]
-  user = sebastianvera
 ; [pager]
 ;   diff = diff-so-fancy | less --tabs=4 -RX
 ;   show = diff-so-fancy | less --tabs=4 -RX
@@ -59,8 +57,8 @@
   verbose = true
 [pull]
 	ff = only
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+; [url "ssh://git@github.com/"]
+; 	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
 [merge]

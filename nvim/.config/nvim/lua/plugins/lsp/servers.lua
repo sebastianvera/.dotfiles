@@ -1,5 +1,11 @@
 return {
-	gopls = {},
+	gopls = {
+		gopls = {
+			hints = {
+				functionTypeParameters = true,
+			},
+		},
+	},
 	rust_analyzer = {},
 	ts_ls = {},
 	clangd = {},
