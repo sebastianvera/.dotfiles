@@ -10,6 +10,7 @@ SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/hydro\x1ejhillyerd/p
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR _hydro_git_85726:main\u2022\x20
 SETUVAR _hydro_git_88117:main\u2022\x20
+SETUVAR _hydro_git_90414:main\u2022\x20
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:normal

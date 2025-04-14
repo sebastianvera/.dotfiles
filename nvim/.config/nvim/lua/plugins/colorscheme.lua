@@ -12,8 +12,11 @@ return {
 
 	"datsfilipe/vesper.nvim",
 	config = function()
-		require("vesper").setup({
-			transparent = true,
+		local vesper = require("vesper")
+		local transparent = true
+		local colors = require("vesper.colors")
+		local conf = {
+			transparent = transparent,
 			italics = {
 				comments = true,
 				keywords = true,
@@ -21,8 +24,21 @@ return {
 				strings = false,
 				variables = false,
 			},
-		})
+		}
 
-		vim.cmd.colorscheme("vesper")
+		if transparent then
+			conf.palette_overrides = {
+				bgFloat = "NONE",
+				bgOption = "#161616",
+				visual = "#161616",
+			}
+		end
+		conf.overrides = {
+			-- Cursor = { bg = colors.green, fg = colors.bg },
+			PmenuThumb = { bg = colors.bg },
+		}
+
+		vesper.setup(conf)
+		vesper.colorscheme()
 	end,
 }
