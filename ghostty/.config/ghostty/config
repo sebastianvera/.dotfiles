@@ -1,20 +1,13 @@
-# https://ghostty.org/docs/config.
+font-size = 18
 # font-family = Cascadia Mono PL
 # font-family = Maple Mono NF
 # font-family = Monaco
-font-family = Monaspace Neon Var
+# font-family = Monaspace Neon Var
 # font-family = Monaspace Xenon Var
-font-size = 20
-window-padding-x = 4
-# theme = vesper
-# macos-titlebar-style = hidden
-# window-decoration = none
-# background = #000
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
+font-family = JetBrains Mono
+background-opacity = 0.95
+background-blur-radius = 20
+macos-non-native-fullscreen = visible-menu
+macos-option-as-alt = left
+mouse-hide-while-typing = true
+theme = catppuccin-frappe
