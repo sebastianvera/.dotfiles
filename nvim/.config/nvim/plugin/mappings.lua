@@ -2,7 +2,7 @@
 vim.keymap.set("n", "<leader><leader>", "<C-^>", { noremap = true, silent = true, nowait = true })
 
 vim.keymap.set("c", "Q", "q", {})
-vim.keymap.set("c", "W", "w", {})
+-- vim.keymap.set("c", "W", "w", {})
 
 vim.keymap.set("", "<C-c>", '"+y', { noremap = true, silent = true, nowait = true })
 
@@ -26,17 +26,6 @@ vim.keymap.set("i", "jk", "<Esc>", {})
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 
--- Telescope: File mappings
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-vim.keymap.set("n", "<leader>fv", function()
-	builtin.find_files({ cwd = "~/.config/nvim" })
-end, {})
-
---
 vim.keymap.set("n", "<leader>vi", ":e ~/.config/nvim/init.lua<CR>", { noremap = true, silent = true, nowait = true })
 
 -- Vim Sneak
