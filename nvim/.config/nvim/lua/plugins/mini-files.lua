@@ -2,7 +2,12 @@ return {
 	"echasnovski/mini.files",
 	version = false,
 	event = "VeryLazy",
-	opts = {},
+	opts = {
+		mappings = {
+			go_in = "L",
+			go_in_plus = "l",
+		},
+	},
 	keys = {
 		{
 			"-",

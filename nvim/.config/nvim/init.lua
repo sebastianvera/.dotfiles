@@ -88,3 +88,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", { dev = { path = "~/Code" } })
+
+vim.lsp.enable({
+	"ts_ls",
+	"lua_ls",
+	"gopls",
+	"jsonls",
+})
