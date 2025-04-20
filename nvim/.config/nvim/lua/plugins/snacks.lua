@@ -4,6 +4,7 @@ return {
 	lazy = false,
 	opts = {
 		picker = {},
+		notifier = {},
 	},
 	keys = {
 		{
