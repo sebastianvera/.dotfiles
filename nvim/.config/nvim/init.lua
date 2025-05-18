@@ -87,11 +87,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", { dev = { path = "~/Code" } })
+require("lsp")
 
-vim.lsp.enable({
-	"ts_ls",
-	"lua_ls",
-	"gopls",
-	"jsonls",
-})
+require("lazy").setup("plugins", { dev = { path = "~/Code" } })

@@ -5,7 +5,72 @@ return {
 	opts = {
 		picker = {},
 		notifier = {},
+		dashboard = {
+			preset = {
+				pick = nil,
+				---@type snacks.dashboard.Item[]
+				keys = {
+					{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+					{
+						icon = " ",
+						key = "g",
+						desc = "Find Text",
+						action = ":lua Snacks.dashboard.pick('live_grep')",
+					},
+					{
+						icon = " ",
+						key = "r",
+						desc = "Recent Files",
+						action = ":lua Snacks.dashboard.pick('oldfiles')",
+					},
+					{
+						icon = " ",
+						key = "c",
+						desc = "Config",
+						action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+					},
+					{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
+					{
+						icon = "󰒲 ",
+						key = "l",
+						desc = "Lazy",
+						action = ":Lazy",
+						enabled = package.loaded.lazy ~= nil,
+					},
+					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+				},
+				header = [[
+                                                                             
+               ████ ██████           █████      ██                     
+              ███████████             █████                             
+              █████████ ███████████████████ ███   ███████████   
+             █████████  ███    █████████████ █████ ██████████████   
+            █████████ ██████████ █████████ █████ █████ ████ █████   
+          ███████████ ███    ███ █████████ █████ █████ ████ █████  
+         ██████  █████████████████████ ████ █████ █████ ████ ██████ 
+      ]],
+			},
+			sections = {
+				{ section = "header" },
+				{
+					section = "keys",
+					indent = 1,
+					padding = 1,
+				},
+				{ section = "recent_files", icon = " ", title = "Recent Files", indent = 3, padding = 2 },
+				{ section = "startup" },
+			},
+		},
 	},
+	init = function()
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "MiniFilesActionRename",
+			callback = function(event)
+				Snacks.rename.on_rename_file(event.data.from, event.data.to)
+			end,
+		})
+	end,
 	keys = {
 		{
 			"<leader>bd",
@@ -136,6 +201,13 @@ return {
 				Snacks.picker.lsp_workspace_symbols()
 			end,
 			desc = "LSP Workspace Symbols",
+		},
+		{
+			"<leader>ca",
+			function()
+				vim.lsp.buf.code_action()
+			end,
+			desc = "LSP Code Actions",
 		},
 	},
 }

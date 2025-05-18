@@ -8,12 +8,14 @@ SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fish
 SETUVAR _fisher_jorgebucaran_2F_hydro_files:\x7e/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_prompt\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/hydro\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/hydro\x1ejhillyerd/plugin\x2dgit
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR _hydro_git_27479:main\u2022\x20
-SETUVAR _hydro_git_47891:main\u2022\x20
+SETUVAR _hydro_git_13507:main\u2022\x20
+SETUVAR _hydro_git_35451:\x1d
+SETUVAR _hydro_git_47823:main\u2022\x20
 SETUVAR _hydro_git_48008:main\u2022\x20
+SETUVAR _hydro_git_53961:fix/deployment\x2d1\x20
+SETUVAR _hydro_git_67643:main\u2022\x20
 SETUVAR _hydro_git_85726:main\u2022\x20
 SETUVAR _hydro_git_88117:main\u2022\x20
-SETUVAR _hydro_git_90414:fix/deployment\x2d1\u2022\x20
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:normal

@@ -1,10 +1,11 @@
-font-size = 18
 # font-family = Cascadia Mono PL
 # font-family = Maple Mono NF
 # font-family = Monaco
 # font-family = Monaspace Neon Var
 # font-family = Monaspace Xenon Var
 font-family = JetBrains Mono
+font-size = 20
+# font-family = CommitMono
 background-opacity = 0.95
 background-blur-radius = 20
 macos-non-native-fullscreen = visible-menu

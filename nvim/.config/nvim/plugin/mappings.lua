@@ -1,7 +1,7 @@
 -- Mappings --
 vim.keymap.set("n", "<leader><leader>", "<C-^>", { noremap = true, silent = true, nowait = true })
 
-vim.keymap.set("c", "Q", "q", {})
+-- vim.keymap.set("c", "Q", "q", {})
 -- vim.keymap.set("c", "W", "w", {})
 
 vim.keymap.set("", "<C-c>", '"+y', { noremap = true, silent = true, nowait = true })
@@ -33,6 +33,9 @@ vim.keymap.set("n", "<leader>vi", ":e ~/.config/nvim/init.lua<CR>", { noremap = 
 -- vim.keymap.set("", "F", "<Plug>Sneak_F", { silent = true })
 -- vim.keymap.set("", "t", "<Plug>Sneak_t", { silent = true })
 -- vim.keymap.set("", "T", "<Plug>Sneak_T", { silent = true })
+
+
+vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, {desc="Open diagnostic in float"})
 
 -- VimTmuxRunner
 vim.keymap.set("n", "<Leader>sf", ":VtrSendFile<CR>", { noremap = true, silent = true, nowait = true })
